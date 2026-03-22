@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* GPU-2 CPU Optimized CSS Animations - replaces SMIL */
+
+/* Stroke dash animation - runs once then fades */
+@keyframes cpu-stroke-dash {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Stroke opacity pulse */
+@keyframes cpu-stroke-opacity {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Marker circle pulse */
+@keyframes cpu-marker-pulse {
+  0%, 100% { r: 2.5; opacity: 1; }
+  50% { r: 4; opacity: 0.5; }
+}
+
+/* Radial gradient color animation */
+@keyframes cpu-grad-color {
+  0%, 100% { stop-color: #ffffff; }
+  50% { stop-color: #c0c0c0; }
+}
+
+/* Connection gradient animation */
+@keyframes cpu-conn-grad {
+  0%, 100% { stop-color: #505050; }
+  50% { stop-color: #707070; }
+}
+
+/* Card opacity pulse */
+@keyframes cpu-card-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Card radius pulse */
+@keyframes cpu-card-radius-pulse {
+  0%, 100% { rx: 3; }
+  50% { rx: 4; }
+}
+
+/* GPU-accelerated stroke animations */
+.gpu2-stroke-animate {
+  animation: cpu-stroke-dash 1.5s ease-out forwards, cpu-stroke-opacity 3s ease-in-out infinite;
+}
+.gpu2-stroke-animate-d1 { animation-delay: 0.1s, 0.5s; }
+.gpu2-stroke-animate-d2 { animation-delay: 0.2s, 1s; }
+.gpu2-stroke-animate-d3 { animation-delay: 0.3s, 1.5s; }
+.gpu2-stroke-animate-d4 { animation-delay: 0.4s, 2s; }
+.gpu2-stroke-animate-d5 { animation-delay: 0.5s, 2.5s; }
+.gpu2-stroke-animate-d6 { animation-delay: 0.6s, 3s; }
+.gpu2-stroke-animate-d7 { animation-delay: 0.7s, 3.5s; }
+
+.gpu2-marker-pulse {
+  animation: cpu-marker-pulse 2.5s ease-in-out infinite;
+}
+
+.gpu2-card-pulse {
+  animation: cpu-card-pulse 2s ease-in-out infinite;
+}
+.gpu2-card-radius {
+  animation: cpu-card-radius-pulse 4s ease-in-out infinite;
+}
+
+.gpu2-grad-animate {
+  animation: cpu-grad-color 2s ease-in-out infinite;
+}
+.gpu2-grad-animate-slow {
+  animation: cpu-grad-color 3s ease-in-out infinite;
+}
+
+.gpu2-conn-grad {
+  animation: cpu-conn-grad 4s ease-in-out infinite;
+}
